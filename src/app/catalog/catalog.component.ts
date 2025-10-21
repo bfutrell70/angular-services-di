@@ -15,8 +15,8 @@ export class CatalogComponent implements OnInit {
   constructor(private productService: ProductsService, private cartService: CartService) { }
 
   ngOnInit(): void {
-    this.products = this.productService.getProducts();
-    setTimeout(() => this.productService.refreshProducts(), 3000);
+    this.productService.getProducts().subscribe((products) => this.products = products);
+    setTimeout(() => this.productService.refreshProducts(), 200);
   }
 
   addToCart(product: Product) {
