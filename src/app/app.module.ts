@@ -17,12 +17,14 @@ import { CART_SERVICE_TOKEN, CartService } from '@core/cart.service';
   // HttpClientModule is deprecated - what is it replaced with?
   imports: [BrowserModule, AppRoutingModule, FormsModule, CatalogModule, HttpClientModule],
   providers: [
+    // CartService
     // causes a second instance of the CartService to be created
     // caused by using a different provider token than the default method
-    {
-      provide: CART_SERVICE_TOKEN,
-      useClass: CartService
-    }
+    // {
+    //   // provide: CART_SERVICE_TOKEN,
+    //   provide: CartService,
+    //   useClass: CartService
+    // }
   ],
   bootstrap: [AppComponent],
 })
