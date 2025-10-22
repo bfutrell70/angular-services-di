@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { SharedModule } from '@shared/shared.module';
 import { SquadRoutingModule } from './squad-routing.module';
 import { SquadCatalogComponent } from './squad-catalog/squad-catalog.component';
-import { CartService } from '@core/cart.service';
+import { CART_OPTIONS_TOKEN, CartService } from '@core/cart.service';
 import { IProductsService, IProductsServiceToken } from '@shared/products-service.interface';
 import { EngineersService } from './engineers.service';
 
@@ -17,6 +17,13 @@ import { EngineersService } from './engineers.service';
       // a provider
       provide: IProductsServiceToken,
       useClass: EngineersService
+    },
+    {
+      provide: CART_OPTIONS_TOKEN,
+      useValue: {
+        persistenceType: 'local',
+        persistenceKey: 'squad-cart'
+      }
     }
   ],
 })
