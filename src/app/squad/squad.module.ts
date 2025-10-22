@@ -18,12 +18,24 @@ import { EngineersService } from './engineers.service';
       useValue: {
         persistenceType: 'local',
         persistenceKey: 'squad-cart',
-      }
+      },
+      // used in directives with the same provider token
+      multi: true
+    },
+    {
+      provide: CART_OPTIONS_TOKEN,
+      useValue: {
+        persistenceType: 'local',
+        persistenceKey: 'squad-cart',
+      },
+      // used in directives with the same provider token
+      multi: true
     },
     {
       provide: CartService,
       useFactory: (cartOptions: CartOptions) => { return new CartService(cartOptions); },
-      deps: [CART_OPTIONS_TOKEN]
+      deps: [CART_OPTIONS_TOKEN],
+      multi: false
     },
     {
       // have to use a custom injection token because interfaces can't be
