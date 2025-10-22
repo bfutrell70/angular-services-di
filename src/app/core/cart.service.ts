@@ -3,7 +3,7 @@ import { Product } from "@shared/product.model";
 
 // export const CART_SERVICE_TOKEN = new InjectionToken<CartService>("CartService");
 
-type CartOptions = {
+export type CartOptions = {
   persistenceType: string,  // SQL, localstorage, etc.
   persistenceKey: string  // localstorage key name
 }
