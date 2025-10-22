@@ -1,21 +1,21 @@
 import { Component } from '@angular/core';
 import { Product } from '@shared/product.model';
 import { engineers } from './engineers';
+import { CartService } from '@core/cart.service';
 
 @Component({
   selector: 'bot-catalog',
   standalone: false,
   templateUrl: './squad-catalog.component.html',
   styleUrls: ['./squad-catalog.component.css'],
-  providers: []
+  providers: [ ]
 })
 export class SquadCatalogComponent {
   squad: Product[] = engineers;
-  private cart: Product[] = [];
 
-  constructor() { }
+  constructor(private cartService: CartService) { }
 
   addToCart(engineer: Product) {
-    this.cart.push(engineer);
+    this.cartService.add(engineer);
   }
 }
