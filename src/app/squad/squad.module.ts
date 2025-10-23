@@ -15,21 +15,9 @@ import { EngineersService } from './engineers.service';
     CartService,
     {
       provide: CART_OPTIONS_TOKEN,
-      useValue: {
-        persistenceType: 'local',
-        persistenceKey: 'squad-cart',
-      },
+      useValue: { persistenceType: 'local', persistenceKey: 'squad-cart' },
       // used in directives with the same provider token
-      multi: true
-    },
-    {
-      provide: CART_OPTIONS_TOKEN,
-      useValue: {
-        persistenceType: 'local',
-        persistenceKey: 'squad-cart',
-      },
-      // used in directives with the same provider token
-      multi: true
+      multi: false
     },
     {
       provide: CartService,
