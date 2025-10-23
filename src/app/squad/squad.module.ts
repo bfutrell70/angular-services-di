@@ -25,12 +25,12 @@ import { EngineersService } from './engineers.service';
       deps: [CART_OPTIONS_TOKEN],
       multi: false
     },
-    {
-      // have to use a custom injection token because interfaces can't be
-      // a provider
-      provide: IProductsServiceToken,
-      useClass: EngineersService
-    },
+    // {
+    //   // have to use a custom injection token because interfaces can't be
+    //   // a provider
+    //   provide: IProductsServiceToken,
+    //   useClass: EngineersService
+    // },
   ],
 })
 export class SquadModule { }
